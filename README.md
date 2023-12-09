@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Money Transfer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Money Transfer App project! We're excited to have you contribute. Before you get started, please take a moment to review the following information.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The Money Transfer App is aimed at addressing challenges in the financial transaction industry. It focuses on enhancing the usability, affordability, and security of money transfer apps.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/damoxify/money-transfer-app-frontend.git
+   ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Switch to the `testing` branch:**
+   ```bash
+   git checkout testing
+   ```
 
-### `npm test`
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Run the app:**
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+5. **Make your changes on the `testing` branch:**
+   ```bash
+   git checkout -b feature/your-feature-branch
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We encourage you to contribute to the project by fixing bugs, improving existing features, or adding new features. To do so:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork the repository.
+2. Create a new branch based on the `testing` branch.
+3. Make your changes and commit them.
+4. Push your branch to your fork.
+5. Create a pull request from your branch to the `testing` branch of the main repository.
 
-### `npm run eject`
+Please follow the [Contribution Guidelines](CONTRIBUTING.md) for detailed information on our contribution process.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Code of Conduct
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a positive and inclusive community for everyone.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In addition to this README, you may want to include separate files for contribution guidelines (`CONTRIBUTING.md`), a code of conduct (`CODE_OF_CONDUCT.md`), and the project's license (`LICENSE.md`). These files provide contributors with additional information on how to contribute, expected behavior, and the project's licensing terms.
