@@ -52,6 +52,3 @@ Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) to ensure 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-```
-
-In addition to this README, you may want to include separate files for contribution guidelines (`CONTRIBUTING.md`), a code of conduct (`CODE_OF_CONDUCT.md`), and the project's license (`LICENSE.md`). These files provide contributors with additional information on how to contribute, expected behavior, and the project's licensing terms.
