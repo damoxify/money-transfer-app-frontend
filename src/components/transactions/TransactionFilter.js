@@ -1,5 +1,5 @@
 import React from 'react';
-import './TransactionFilter.css'; // Import the stylesheet
+import '../transactions/styles/TransactionFilter.css'; // Import the stylesheet
 
 const TransactionFilter = () => {
   return (

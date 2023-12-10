@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { TransactionContext } from '../../context/TransactionContext';
 import TransactionItem from './TransactionItem';
 import TransactionFilter from './TransactionFilter';
-import './TransactionHistoryPage.css';
+import '../transactions/styles/TransactionHistoryPage.css';
 
 const TransactionHistoryPage = () => {
   const { transactions } = useContext(TransactionContext);
