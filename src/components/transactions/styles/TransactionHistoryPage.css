@@ -1,0 +1,13 @@
+/* TransactionHistoryPage.css */
+
+.transaction-history-page {
+    padding: 20px;
+  }
+  
+  .transaction-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+
+  

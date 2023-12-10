@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
 
-function App() {
+import React from 'react';
+import { TransactionProvider } from './context/TransactionContext';
+import TransactionHistoryPage from './components/transactions/TransactionHistoryPage';
+import Header from './common/Header';
+import Footer from './common/Footer';
+import './styles/global.css'; // Import global styles
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TransactionProvider>
+      <div className="app">
+        <Header />
+        <main className="main-content">
+          {/* Your other components */}
+          <TransactionHistoryPage />
+        </main>
+        <Footer />
+      </div>
+    </TransactionProvider>
   );
-}
+};
 
 export default App;
