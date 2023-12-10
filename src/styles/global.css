@@ -13,6 +13,17 @@ li {
   box-sizing: border-box;
 }
 
+  /* Global.css (or a shared global stylesheet) */
+  
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+.app {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
