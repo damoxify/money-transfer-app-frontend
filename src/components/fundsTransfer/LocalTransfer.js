@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import '../fundsTransfer/styles/localTransfer.css';
 
 function localTransfer() {
     const [amount, setAmount] = useState("");
@@ -34,7 +35,7 @@ function localTransfer() {
 
 
   return (
-    <div>localTransfer
+    <div>local Transfer
         <form className="transfer" onSubmit={handleSubmit}> 
             <input type="text"
                 placeholder="Select Beneficiary"
