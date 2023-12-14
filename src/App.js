@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
 import BeneficiariesList from './components/beneficiaries/BeneficiariesList';
 import AddBeneficiaryForm from './components/beneficiaries/AddBeneficiaryForm';
 import TransactionHistoryPage from './components/transactions/TransactionHistoryPage';
 import Header from './common/Header';
 import Footer from './common/Footer';
-import './styles/global.css'; 
 import { BeneficiariesProvider } from './context/BeneficiariesContext';
 import { TransactionProvider } from './context/TransactionContext';
 
@@ -17,12 +18,14 @@ const App = () => {
           <div className="app">
             <Header />
             <main className="main-content">
-              <Switch>
-                <Route path="/beneficiaries" component={BeneficiariesList} />
-                <Route path="/add-beneficiary" component={AddBeneficiaryForm} />
-                <Route path="/transactions" component={TransactionHistoryPage} />
-                <Route exact path="/" component={TransactionHistoryPage} />
-              </Switch>
+              <Routes>
+                <Route path="/beneficiaries" element={<BeneficiariesList />} />
+                <Route path="/add-beneficiary" element={<AddBeneficiaryForm />} />
+                <Route path="/transactions" element={<TransactionHistoryPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route index element={<TransactionHistoryPage />} />
+              </Routes>
             </main>
             <Footer />
           </div>
