@@ -45,7 +45,7 @@ function localTransfer() {
             />
 
             <input type="text"
-                placeholder="Account Name"
+                placeholder="Account Number"
                 account="Account"
                 value={account}
                 onChange={(e) => setAccount(e.target.value)}
