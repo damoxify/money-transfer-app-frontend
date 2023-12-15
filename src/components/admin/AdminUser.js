@@ -24,7 +24,7 @@ function AdminUser() {
             if (conf) {
                 axios.delete(""+id)
                 .then(res => {
-                    alert("Record has deleted")
+                    alert("Record is deleted")
                     navigate('/')
                 }).catch(err => console.log(err))
     

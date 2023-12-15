@@ -1,6 +1,7 @@
 import React from 'react';
-// import InternationalTransfer from './InternationalTransfer';
-// import localTransfer from './localTransfer';
+import InternationalTransfer from './InternationalTransfer';
+import localTransfer from './localTransfer';
+import { Link } from 'react-router-dom';
 import '../fundsTransfer/styles/FundsTransfer.css';
 
 function FundsTransfer() {
@@ -9,10 +10,10 @@ function FundsTransfer() {
     <div>
 
         <span>
-            <button>Local Transfer</button>
+            <Link to={'/localTransfer'}><button>Local Transfer</button></Link>
         </span>
         <span>
-            <button>International Transfer</button>
+            <Link to={'/InternationalTransfer'}><button>International Transfer</button></Link>
         </span>
 
     </div>

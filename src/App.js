@@ -9,6 +9,8 @@ import Header from './common/Header';
 import Footer from './common/Footer';
 import { BeneficiariesProvider } from './context/BeneficiariesContext';
 import { TransactionProvider } from './context/TransactionContext';
+import FundsTransfer from './components/fundsTransfer/FundsTransfer';
+
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
             <Header />
             <main className="main-content">
               <Routes>
+                <Route path="/FundsTransfer" element={<FundsTransfer/>} />
                 <Route path="/beneficiaries" element={<BeneficiariesList />} />
                 <Route path="/add-beneficiary" element={<AddBeneficiaryForm />} />
                 <Route path="/transactions" element={<TransactionHistoryPage />} />
