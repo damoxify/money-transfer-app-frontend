@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../fundsTransfer/styles/localTransfer.css';
 
-function localTransfer() {
+function LocalTransfer() {
     const [amount, setAmount] = useState("");
     const [beneficiary, setBeneficiary] = useState("");
     const [bank, setBank] = useState("");
@@ -78,4 +78,4 @@ function localTransfer() {
   )
 }
 
-export default localTransfer
+export default LocalTransfer

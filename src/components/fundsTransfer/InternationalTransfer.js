@@ -29,7 +29,7 @@ function InternationalTransfer() {
             body: JSON.stringify(itemData),
         })
         .then((res) => res.json())
-        .then((item))
+        // .then((item))
 
 
     }

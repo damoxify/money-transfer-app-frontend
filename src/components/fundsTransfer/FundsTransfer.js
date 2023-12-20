@@ -8,7 +8,7 @@ function FundsTransfer() {
     <div>
 
         <span>
-            <Link to={'/localTransfer'}><button>Local Transfer</button></Link>
+            <Link to={'/LocalTransfer'}><button>Local Transfer</button></Link>
         </span>
         <span>
             <Link to={'/InternationalTransfer'}><button>International Transfer</button></Link>
