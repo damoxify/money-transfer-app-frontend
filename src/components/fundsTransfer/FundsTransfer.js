@@ -1,6 +1,4 @@
 import React from 'react';
-import InternationalTransfer from './InternationalTransfer';
-import localTransfer from './localTransfer';
 import { Link } from 'react-router-dom';
 import '../fundsTransfer/styles/FundsTransfer.css';
 
