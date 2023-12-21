@@ -5,6 +5,7 @@ import Signup from './components/auth/Signup';
 import BeneficiariesList from './components/beneficiaries/BeneficiariesList';
 import AddBeneficiaryForm from './components/beneficiaries/AddBeneficiaryForm';
 import TransactionHistoryPage from './components/transactions/TransactionHistoryPage';
+import Homepage from './components/homepage/Homepage';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import { BeneficiariesProvider } from './context/BeneficiariesContext';
@@ -27,7 +28,7 @@ const App = () => {
                 <Route path="/transactions" element={<TransactionHistoryPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route index element={<TransactionHistoryPage />} />
+                <Route path="/" element={<Homepage />} /> 
               </Routes>
             </main>
             <Footer />
