@@ -1,0 +1,54 @@
+.homepage-header {
+    color: #020887;
+    padding: 2rem;
+    font-size: larger;
+  }
+  
+  .header-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .header-text {
+    max-width: 400px;
+  }
+  
+  .header-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  
+  .feature img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-left: 4rem;
+    margin-top: 4rem;
+  }
+  
+  .feature-details {
+    max-width: 400px;
+  }
+  
+  .feature h3 {
+    font-size: 1.5rem;
+    color: #020887;
+    margin-top: 1rem;
+  }
+  
+  .feature p {
+    color: #555;
+  }
+  
