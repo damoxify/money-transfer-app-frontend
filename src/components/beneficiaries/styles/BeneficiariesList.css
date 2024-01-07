@@ -1,0 +1,16 @@
+.beneficiaries-list {
+    margin-top: 20px;
+  }
+  
+  .beneficiaries-list h2 {
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .beneficiaries-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+
+  

@@ -1,0 +1,37 @@
+.add-beneficiary-form {
+    margin-top: 20px;
+  }
+  
+  .add-beneficiary-form h2 {
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .add-beneficiary-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+  }
+  
+  .add-beneficiary-form label {
+    margin-bottom: 10px;
+  }
+  
+  .add-beneficiary-form input {
+    padding: 8px;
+    font-size: 1rem;
+  }
+  
+  .add-beneficiary-form button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .add-beneficiary-form button:hover {
+    background-color: #45a049;
+  }
+  

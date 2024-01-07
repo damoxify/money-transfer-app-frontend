@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
+import BeneficiariesList from './components/beneficiaries/BeneficiariesList';
+import AddBeneficiaryForm from './components/beneficiaries/AddBeneficiaryForm';
+import TransactionHistoryPage from './components/transactions/TransactionHistoryPage';
+import Header from './common/Header';
+import Footer from './common/Footer';
+import { BeneficiariesProvider } from './context/BeneficiariesContext';
+import { TransactionProvider } from './context/TransactionContext';
+import FundsTransfer from './components/fundsTransfer/FundsTransfer';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <BeneficiariesProvider>
+        <TransactionProvider>
+          <div className="app">
+            <Header />
+            <main className="main-content">
+              <Routes>
+                <Route path="/FundsTransfer" element={<FundsTransfer/>} />
+                <Route path="/beneficiaries" element={<BeneficiariesList />} />
+                <Route path="/add-beneficiary" element={<AddBeneficiaryForm />} />
+                <Route path="/transactions" element={<TransactionHistoryPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route index element={<TransactionHistoryPage />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </TransactionProvider>
+      </BeneficiariesProvider>
+    </Router>
   );
-}
+};
 
 export default App;
