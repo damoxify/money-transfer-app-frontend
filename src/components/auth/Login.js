@@ -1,15 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { auth } from '../../config/FirebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { FiMail, FiLock } from 'react-icons/fi'; 
 import * as yup from 'yup';
 import './styles/Login.css';
-import backgroundImage from '../../assets/images/mtalogin.jpg'
 
+const Login = ({ setAuthenticated, setToken }) => {
+  const history = useHistory(); 
 
-const Login = () => {
   const formSchema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
     password: yup.string().required('Password is required'),
@@ -23,8 +23,18 @@ const Login = () => {
     validationSchema: formSchema,
     onSubmit: async (values) => {
       try {
-        const user = await signInWithEmailAndPassword(auth, values.email, values.password);
+        const response = await signInWithEmailAndPassword(auth, values.email, values.password);
+        const user = response.user;
+        const token = response.access_token;
+
+        // Store JWT token and authentication status
+        setToken(token);
+        setAuthenticated(true);
+
         console.log(user);
+
+        // Redirect to a protected route after successful login
+        history.push('/dashboard');
       } catch (error) {
         console.error(error.message);
       }
@@ -74,11 +84,7 @@ const Login = () => {
 
         <button type="submit" className="login-button">Sign In</button>
         <p className="login-subtitle">Don't have an account? <Link className='signup-link' to="/signup">Sign up here</Link></p>
-
       </form>
-      <div className="login-image">
-    <img src={backgroundImage} alt="Background" className="signup-image" />
-    </div> 
     </div>
   );
 };
