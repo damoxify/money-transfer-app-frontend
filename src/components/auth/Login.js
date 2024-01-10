@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { auth } from '../../config/FirebaseConfig';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { FiMail, FiLock } from 'react-icons/fi'; 
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { FiMail, FiLock } from 'react-icons/fi';
 import * as yup from 'yup';
 import './styles/Login.css';
 
 const Login = ({ setAuthenticated, setToken }) => {
-  const history = useHistory(); 
+  const history = useHistory();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const formSchema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
@@ -23,28 +24,45 @@ const Login = ({ setAuthenticated, setToken }) => {
     validationSchema: formSchema,
     onSubmit: async (values) => {
       try {
+        // Sign in the user using Firebase authentication
         const response = await signInWithEmailAndPassword(auth, values.email, values.password);
         const user = response.user;
         const token = response.access_token;
 
-        // Store JWT token and authentication status
+        // Store JWT token and set authentication status
         setToken(token);
         setAuthenticated(true);
 
-        console.log(user);
-
-        // Redirect to a protected route after successful login
+        // Redirect to the user dashboard after successful login
         history.push('/dashboard');
       } catch (error) {
-        console.error(error.message);
+        console.error('Login error:', error.message);
+        setErrorMessage('Invalid email or password. Please try again.');
       }
     },
   });
+
+  const handleLogout = async () => {
+    try {
+      // Sign out the user using Firebase authentication
+      await signOut(auth);
+
+      // Clear user authentication status in the frontend
+      setAuthenticated(false);
+
+      // Redirect to the login page or any other desired route
+      history.push('/login');
+    } catch (error) {
+      console.error('Logout error:', error.message);
+    }
+  };
 
   return (
     <div className="login-container">
       <form onSubmit={formik.handleSubmit} className="login-form">
         <h1 className="login-heading">Welcome Back</h1>
+
+        {errorMessage && <p className="login-error">{errorMessage}</p>}
 
         <div className="login-input-group">
           <label className="login-label">
@@ -85,6 +103,13 @@ const Login = ({ setAuthenticated, setToken }) => {
         <button type="submit" className="login-button">Sign In</button>
         <p className="login-subtitle">Don't have an account? <Link className='signup-link' to="/signup">Sign up here</Link></p>
       </form>
+
+      {setAuthenticated && (
+        <div>
+          <p>You are logged in.</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      )}
     </div>
   );
 };
