@@ -1,10 +1,7 @@
-// TransactionContext.js
-
 import React, { createContext, useReducer } from 'react';
 
 const initialState = {
-  transactions: [], // Array to store transaction data
-  // Additional state properties if needed
+  transactions: [], 
 };
 
 const ADD_TRANSACTION = 'ADD_TRANSACTION';
@@ -26,7 +23,6 @@ export const TransactionContext = createContext();
 export const TransactionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(transactionReducer, initialState);
 
-  // Actions
   const addTransaction = (transaction) => {
     dispatch({ type: ADD_TRANSACTION, payload: transaction });
   };

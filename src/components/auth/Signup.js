@@ -2,42 +2,43 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri';
-import Select from 'react-select';
+import axios from 'axios';
 import backgroundImage from '../../assets/images/mtabg.jpg';
 
 import './styles/Signup.css';
 
-const countryOptions = [
-  { value: 'usa', label: 'United States' },
-  { value: 'canada', label: 'Canada' },
-  { value: 'nigeria', label: 'Nigeria' },
-  { value: 'kenya', label: 'Kenya' },
-  { value: 'ghana', label: 'Ghana' },
-];
 
 function Signup() {
-  const [customers, setCustomers] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
   const formSchema = yup.object().shape({
-    email: yup.string().required('Email is required'),
-    dateOfBirth: yup.date().required('Date of Birth is required'),
-    country: yup.string().required('Country of Residence is required'),
-    password: yup.string().required('Password is required'),
+    username: yup.string().required('Username is required'),
+    fullname: yup.string().required('Full name is required'),
+    email: yup.string().email('Invalid email').required('Email is required'),
+    address: yup.string(),
+    password: yup.string().required('Password is required').min(6, 'Password must be at least 6 characters'),
   });
 
   const formik = useFormik({
     initialValues: {
+      username: '',
+      fullname: '',
       email: '',
-      dateOfBirth: '',
-      country: '',
+      address: '',
+      // country: '',
       password: '',
     },
     validationSchema: formSchema,
-    onSubmit: (values) => {
-      setCustomers([...customers, values]);
-      console.log('Signup successful:', values);
-      formik.resetForm();
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post('/users', values);
+        console.log('Signup successful:', response.data);
+
+        // Reset the form
+        formik.resetForm();
+      } catch (error) {
+        console.error('Signup failed:', error.message);
+      }
     },
   });
 
@@ -45,9 +46,6 @@ function Signup() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const handleCountryChange = (selectedOption) => {
-    formik.setFieldValue('country', selectedOption.label);
-  };
 
   return (
     <div className="signup-container">
@@ -56,75 +54,75 @@ function Signup() {
         <p className="signup-subtitle">Transactions Made Easy And Secured</p>
 
         <div className="signup-input-group">
-          <label className="signup-label">Email</label>
+          <label className="signup-label">Username</label>
           <input
-            name="email"
+            name="username"
             type="text"
             className="signup-input"
-            placeholder="Enter your email..."
-            value={formik.values.email}
+            placeholder="Enter your username..."
+            value={formik.values.username}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.email && formik.errors.email && (
-            <p className="signup-error">{formik.errors.email}</p>
+          {formik.touched.username && formik.errors.username && (
+            <p className="signup-error">{formik.errors.username}</p>
           )}
         </div>
 
         <div className="signup-input-group">
-          <label className="signup-label">Password</label>
-          <div className="password-input-group">
-            <input
-              name="password"
-              type={showPassword ? 'text' : 'password'}
-              className="signup-input"
-              placeholder="Create your password..."
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {showPassword ? (
-              <RiEyeCloseLine onClick={togglePasswordVisibility} className="eye-icon" />
-            ) : (
-              <RiEyeLine onClick={togglePasswordVisibility} className="eye-icon" />
-            )}
-          </div>
-          {formik.touched.password && formik.errors.password && (
-            <p className="signup-error">{formik.errors.password}</p>
-          )}
-        </div>
-
-        <div className="signup-input-group">
-          <label className="signup-label">Date of Birth</label>
+          <label className="signup-label">Full Name</label>
           <input
-            name="dateOfBirth"
-            type="date"
+            name="fullname"
+            type="text"
             className="signup-input"
-            placeholder="Select your date of birth..."
-            value={formik.values.dateOfBirth}
+            placeholder="Enter your full name..."
+            value={formik.values.fullname}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
-            <p className="signup-error">{formik.errors.dateOfBirth}</p>
+          {formik.touched.fullname && formik.errors.fullname && (
+            <p className="signup-error">{formik.errors.fullname}</p>
           )}
         </div>
-
         <div className="signup-input-group">
-          <label className="signup-label">Country of Residence</label>
-          <div className="country-input">
-            <Select
-              options={countryOptions}
-              value={{ label: formik.values.country, value: formik.values.country }}
-              onChange={handleCountryChange}
-              placeholder="Select your country..."
-              isSearchable
-            />
-            {formik.touched.country && formik.errors.country && (
-              <p className="signup-error">{formik.errors.country}</p>
-            )}
-          </div>
-        </div>
+<label className="signup-label">Email</label>
+<input
+  name="email"
+  type="text"
+  className="signup-input"
+  placeholder="Enter your email..."
+  value={formik.values.email}
+  onChange={formik.handleChange}
+  onBlur={formik.handleBlur}
+/>
+{formik.touched.email && formik.errors.email && (
+  <p className="signup-error">{formik.errors.email}</p>
+)}
+</div>
+
+<div className="signup-input-group">
+<label className="signup-label">Password</label>
+<div className="password-input-group">
+  <input
+    name="password"
+    type={showPassword ? 'text' : 'password'}
+    className="signup-input"
+    placeholder="Create your password..."
+    value={formik.values.password}
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+  />
+  {showPassword ? (
+    <RiEyeCloseLine onClick={togglePasswordVisibility} className="eye-icon" />
+  ) : (
+    <RiEyeLine onClick={togglePasswordVisibility} className="eye-icon" />
+  )}
+</div>
+{formik.touched.password && formik.errors.password && (
+  <p className="signup-error">{formik.errors.password}</p>
+)}
+</div>
+
 
         <button type="submit" className="signup-button">
           Sign up
@@ -140,3 +138,20 @@ function Signup() {
 }
 
 export default Signup;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

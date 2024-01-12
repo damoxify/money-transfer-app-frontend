@@ -1,40 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import BeneficiariesList from './components/beneficiaries/BeneficiariesList';
 import AddBeneficiaryForm from './components/beneficiaries/AddBeneficiaryForm';
 import TransactionHistoryPage from './components/transactions/TransactionHistoryPage';
+import Dashboard from './components/dashboard/Dashboard';
 import Homepage from './components/homepage/Homepage';
 import Header from './common/Header';
 import Footer from './common/Footer';
-import { BeneficiariesProvider } from './context/BeneficiariesContext';
-import { TransactionProvider } from './context/TransactionContext';
 import FundsTransfer from './components/fundsTransfer/FundsTransfer';
-
+import { AuthProvider } from './context/AuthContext'; 
 
 const App = () => {
+  const [token, setToken] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
+
   return (
     <Router>
-      <BeneficiariesProvider>
-        <TransactionProvider>
-          <div className="app">
-            <Header />
-            <main className="main-content">
-              <Routes>
-                <Route path="/FundsTransfer" element={<FundsTransfer/>} />
-                <Route path="/beneficiaries" element={<BeneficiariesList />} />
-                <Route path="/add-beneficiary" element={<AddBeneficiaryForm />} />
-                <Route path="/transactions" element={<TransactionHistoryPage />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/" element={<Homepage />} /> 
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </TransactionProvider>
-      </BeneficiariesProvider>
+      <AuthProvider>
+        <div className="app">
+          <Header />
+          <main className="main-content">
+            <Routes>
+              <Route path="/FundsTransfer" element={<FundsTransfer />} />
+              <Route path="/beneficiaries" element={<BeneficiariesList />} />
+              <Route path="/add-beneficiary" element={<AddBeneficiaryForm />} />
+              <Route path="/transactions" element={<TransactionHistoryPage />} />
+              <Route
+                path="/dashboard"
+                element={<Dashboard setToken={setToken} setAuthenticated={setAuthenticated} />}
+              />
+             <Route
+                path="/login"
+                element={<Login setToken={setToken} setAuthenticated={setAuthenticated} />}
+              />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/" element={<Homepage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </AuthProvider>
     </Router>
   );
 };

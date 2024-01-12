@@ -11,7 +11,7 @@ function AdminUser() {
     const navigate = useNavigate()
 
     useEffect(()=> {
-        axios.get('https://jsonplaceholder.typicode.com/todos/1')
+        axios.get('/admin/transactions')
         .then(res =>{
             setColumns(Object.keys(res.data[0]))
             setRecords(res.data)

@@ -1,42 +1,31 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { auth } from '../../config/FirebaseConfig';
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { FiMail, FiLock } from 'react-icons/fi';
-import * as yup from 'yup';
+import axios from 'axios'; 
 import './styles/Login.css';
 
 const Login = ({ setAuthenticated, setToken }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
-
-  const formSchema = yup.object().shape({
-    email: yup.string().email('Invalid email').required('Email is required'),
-    password: yup.string().required('Password is required'),
-  });
 
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    validationSchema: formSchema,
     onSubmit: async (values) => {
       try {
-        // Sign in the user using Firebase authentication
-        const response = await signInWithEmailAndPassword(auth, values.email, values.password);
-        const user = response.user;
-        const token = response.access_token;
+        const response = await axios.post('/login', values);
 
-        // Store JWT token and set authentication status
+        const token = response.data.access_token;
+
         setToken(token);
         setAuthenticated(true);
 
-        // Redirect to the user dashboard after successful login
-        history.push('/dashboard');
+        navigate('/dashboard');
       } catch (error) {
         console.error('Login error:', error.message);
+
         setErrorMessage('Invalid email or password. Please try again.');
       }
     },
@@ -44,16 +33,17 @@ const Login = ({ setAuthenticated, setToken }) => {
 
   const handleLogout = async () => {
     try {
-      // Sign out the user using Firebase authentication
-      await signOut(auth);
+      await axios.post('/logout');
 
-      // Clear user authentication status in the frontend
+
       setAuthenticated(false);
+      setToken(null);
 
-      // Redirect to the login page or any other desired route
-      history.push('/login');
+      navigate('/');
     } catch (error) {
       console.error('Logout error:', error.message);
+
+      setErrorMessage('Logout failed. Please try again.');
     }
   };
 
@@ -65,9 +55,7 @@ const Login = ({ setAuthenticated, setToken }) => {
         {errorMessage && <p className="login-error">{errorMessage}</p>}
 
         <div className="login-input-group">
-          <label className="login-label">
-            <FiMail className="login-icon" /> Email:
-          </label>
+          <label className="login-label">Email:</label>
           <input
             name="email"
             type="email"
@@ -77,15 +65,10 @@ const Login = ({ setAuthenticated, setToken }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.email && formik.errors.email && (
-            <p className="login-error">{formik.errors.email}</p>
-          )}
         </div>
 
         <div className="login-input-group">
-          <label className="login-label">
-            <FiLock className="login-icon" /> Password:
-          </label>
+          <label className="login-label">Password:</label>
           <input
             name="password"
             type="password"
@@ -95,16 +78,17 @@ const Login = ({ setAuthenticated, setToken }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.password && formik.errors.password && (
-            <p className="login-error">{formik.errors.password}</p>
-          )}
         </div>
 
-        <button type="submit" className="login-button">Sign In</button>
-        <p className="login-subtitle">Don't have an account? <Link className='signup-link' to="/signup">Sign up here</Link></p>
+        <button type="submit" className="login-button">
+          Sign In
+        </button>
+        <p className="login-subtitle">
+          Don't have an account? <Link className="signup-link" to="/signup">Sign up here</Link>
+        </p>
       </form>
 
-      {setAuthenticated && (
+      {setAuthenticated() && (
         <div>
           <p>You are logged in.</p>
           <button onClick={handleLogout}>Logout</button>

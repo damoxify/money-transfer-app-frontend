@@ -12,9 +12,9 @@ function AdminAddUser() {
     function handleSubmit(event) {
       event.preventDefault()
   
-      axios.post("", inputData)
+      axios.post("/admin/users", inputData)
       .then(res => {
-        alert("Data Added Succesfully");
+        alert("User Added Succesfully");
         navigate('/')
       }).catch(err => console.log(err))
     }
