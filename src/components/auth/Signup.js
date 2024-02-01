@@ -25,7 +25,6 @@ function Signup() {
       fullname: '',
       email: '',
       address: '',
-      // country: '',
       password: '',
     },
     validationSchema: formSchema,
@@ -46,12 +45,13 @@ function Signup() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-
   return (
     <div className="signup-container">
       <form onSubmit={formik.handleSubmit} className="signup-form">
-        <h1 className="signup-heading">MONEY TRANSFER APP</h1>
-        <p className="signup-subtitle">Transactions Made Easy And Secured</p>
+        <div className="signup-header">
+          <h1 className="signup-heading">MONEY TRANSFER APP</h1>
+          <p className="signup-subtitle">Transactions Made Easy And Secured</p>
+        </div>
 
         <div className="signup-input-group">
           <label className="signup-label">Username</label>
@@ -84,52 +84,52 @@ function Signup() {
             <p className="signup-error">{formik.errors.fullname}</p>
           )}
         </div>
+
         <div className="signup-input-group">
-<label className="signup-label">Email</label>
-<input
-  name="email"
-  type="text"
-  className="signup-input"
-  placeholder="Enter your email..."
-  value={formik.values.email}
-  onChange={formik.handleChange}
-  onBlur={formik.handleBlur}
-/>
-{formik.touched.email && formik.errors.email && (
-  <p className="signup-error">{formik.errors.email}</p>
-)}
-</div>
+          <label className="signup-label">Email</label>
+          <input
+            name="email"
+            type="text"
+            className="signup-input"
+            placeholder="Enter your email..."
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.email && formik.errors.email && (
+            <p className="signup-error">{formik.errors.email}</p>
+          )}
+        </div>
 
-<div className="signup-input-group">
-<label className="signup-label">Password</label>
-<div className="password-input-group">
-  <input
-    name="password"
-    type={showPassword ? 'text' : 'password'}
-    className="signup-input"
-    placeholder="Create your password..."
-    value={formik.values.password}
-    onChange={formik.handleChange}
-    onBlur={formik.handleBlur}
-  />
-  {showPassword ? (
-    <RiEyeCloseLine onClick={togglePasswordVisibility} className="eye-icon" />
-  ) : (
-    <RiEyeLine onClick={togglePasswordVisibility} className="eye-icon" />
-  )}
-</div>
-{formik.touched.password && formik.errors.password && (
-  <p className="signup-error">{formik.errors.password}</p>
-)}
-</div>
-
+        <div className="signup-input-group">
+          <label className="signup-label">Password</label>
+          <div className="password-input-group">
+            <input
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              className="signup-input"
+              placeholder="Create your password..."
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {showPassword ? (
+              <RiEyeCloseLine onClick={togglePasswordVisibility} className="eye-icon" />
+            ) : (
+              <RiEyeLine onClick={togglePasswordVisibility} className="eye-icon" />
+            )}
+          </div>
+          {formik.touched.password && formik.errors.password && (
+            <p className="signup-error">{formik.errors.password}</p>
+          )}
+        </div>
 
         <button type="submit" className="signup-button">
           Sign up
         </button>
 
         <p className="signup-login-link">
-          Already have an account? <a href="/login" className='login-link'>Log in</a>
+          Already have an account? <a href="/login" className="login-link">Log in</a>
         </p>
       </form>
       <img src={backgroundImage} alt="Background" className="signup-image" />
@@ -138,8 +138,6 @@ function Signup() {
 }
 
 export default Signup;
-
-
 
 
 

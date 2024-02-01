@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import axios from 'axios'; 
+import axios from 'axios';
 import './styles/Login.css';
+import backgroundImage from '../../assets/images/mtalogin.jpg';
 
 const Login = ({ setAuthenticated, setToken }) => {
   const navigate = useNavigate();
@@ -35,10 +36,10 @@ const Login = ({ setAuthenticated, setToken }) => {
     try {
       await axios.post('/logout');
 
-
       setAuthenticated(false);
       setToken(null);
 
+      // Navigate to the home route upon logout
       navigate('/');
     } catch (error) {
       console.error('Logout error:', error.message);
@@ -80,13 +81,19 @@ const Login = ({ setAuthenticated, setToken }) => {
           />
         </div>
 
-        <button type="submit" className="login-button">
+        {/* Update the onClick handler for the login button */}
+        <button type="submit" className="login-button" onClick={() => navigate('/dashboard')}>
           Sign In
         </button>
+        
         <p className="login-subtitle">
           Don't have an account? <Link className="signup-link" to="/signup">Sign up here</Link>
         </p>
       </form>
+      <div className="image-container">
+        {/* Use the imported background image */}
+        <img src={backgroundImage} alt="Background" className="login-image" />
+      </div>
 
       {setAuthenticated() && (
         <div>
