@@ -1,0 +1,47 @@
+/* Product.css */
+
+.product-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-container h1 {
+  color: #3498db;
+}
+
+.product-container p {
+  line-height: 1.5;
+}
+
+.feature-section,
+.how-it-works-section {
+  margin-top: 20px;
+}
+
+.product-container h2 {
+  color: #2ecc71;
+}
+
+.feature-list p,
+.how-it-works-list li {
+  margin-bottom: 10px;
+}
+
+.product-container .feature-list,
+.product-container .how-it-works-list {
+  text-align: left;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .product-container {
+    max-width: 90%;
+  }
+}

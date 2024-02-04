@@ -1,0 +1,123 @@
+.signup-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-form {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #020887;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    max-width: 30rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1rem;
+    transform: rotateX(-15deg);
+    margin-left: 2rem;
+  }
+  
+  .signup-header {
+    text-align: center;
+  }
+  
+  .signup-heading {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .signup-subtitle {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  
+  .signup-label {
+    font-size: 0.875rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .signup-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #8a2be2;
+    border-radius: 0.5rem;
+    color: #333;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  .signup-input-group {
+    margin-bottom: 2rem;
+  }
+  
+  .signup-error {
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+  }
+  
+  .signup-button {
+    width: 100%;
+    background-color: rgb(45, 70, 232);
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-button:hover {
+    background-color: #4898ba;
+    color: black;
+    transition: background-color 0.3s ease-in-out;
+    transform: scale(1.02);
+  }
+  
+  .signup-login-link {
+    font-size: 0.875rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .eye-icon {
+    cursor: pointer;
+  }
+  
+  .password-input-group {
+    position: relative;
+  }
+  
+  .password-input-group .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+  
+  .signup-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+  
+  .login-link {
+    color: aqua;
+  }
+  
+  .login-link:hover {
+    color: black;
+  }
+  
