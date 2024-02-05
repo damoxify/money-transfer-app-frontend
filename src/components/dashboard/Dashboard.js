@@ -1,5 +1,7 @@
+// Dashboard.js
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { FaChartBar, FaUser, FaMoneyBill, FaUsers, FaMoneyCheckAlt, FaListAlt, FaPowerOff } from 'react-icons/fa';
 import axios from 'axios';
 import '../dashboard/Dashboard.css';
 
@@ -15,12 +17,11 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get('/users/1');
-        const { username, email} = response.data;
+        const { username, email } = response.data;
 
         setUserData({
           username,
           email,
-        
         });
       } catch (error) {
         console.error('Error fetching user data:', error.message);
@@ -28,15 +29,10 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
     };
 
     fetchUserData();
-  }, []); 
+  }, []);
 
   const handleLogout = () => {
-
-    // Set authentication state to false
-    // setAuthenticated(false);
-    // setToken(null);
-
-   
+    // Handle logout logic
     navigate('/');
   };
 
@@ -47,14 +43,36 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
         <p className="dashboard-welcome">Welcome, {userData.username}!</p>
         <p className="dashboard-email">Email: {userData.email}</p>
 
-        <div className="money-transfer-section">
+        <div className="balance-section">
           <h3>Your Balance: ${userData.balance}</h3>
-          <button className="money-transfer-button">Transfer Money</button>
-          <button className="money-history-button">Transaction History</button>
+          <div className="transaction-buttons">
+            <Link to="/add-funds">Add Funds</Link>
+            <Link to="/send-money">Send Money</Link>
+          </div>
+        </div>
+
+        <div className="icon-navbar">
+          <Link to="/analytics">
+            <FaChartBar />
+            <span>Analytics</span>
+          </Link>
+          <Link to="/profile">
+            <FaUser />
+            <span>View/Update Profile</span>
+          </Link>
+          <Link to="/add-beneficiary">
+            <FaUsers />
+            <span>Add Beneficiary</span>
+          </Link>
+          <Link to="/transaction-summary">
+            <FaListAlt />
+            <span>Transaction Summary</span>
+          </Link>
         </div>
 
         <button className="dashboard-logout" onClick={handleLogout}>
-          Logout
+          <FaPowerOff />
+          <span>Logout</span>
         </button>
       </div>
     </div>

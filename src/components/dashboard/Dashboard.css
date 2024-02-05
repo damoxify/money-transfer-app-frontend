@@ -1,3 +1,4 @@
+/* Dashboard.css */
 .dashboard-container {
   max-width: 80%;
   margin: 80px auto;
@@ -11,6 +12,7 @@
   font-size: 28px;
   margin-bottom: 20px;
   text-align: center;
+  color: #020887;
 }
 
 .dashboard-content {
@@ -23,6 +25,7 @@
 
 .dashboard-welcome {
   font-size: 20px;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
@@ -32,41 +35,69 @@
   margin-bottom: 20px;
 }
 
-.money-transfer-section {
+.balance-section {
   margin-top: 20px;
 }
 
-.money-transfer-section h3 {
+.balance-section h3 {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.money-transfer-button,
-.money-history-button,
-.dashboard-logout {
+.transaction-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.transaction-buttons a {
   background-color: #020887;
   color: #fff;
-  padding: 12px 30px;
-  border: none;
+  padding: 12px 20px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 18px;
+  text-decoration: none;
   transition: background-color 0.3s;
 }
 
-.money-transfer-button:hover,
-.money-history-button:hover,
-.dashboard-logout:hover {
+.transaction-buttons a:hover {
   background-color: #020887;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .dashboard-container {
-    max-width: 90%;
-  }
+.icon-navbar {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  .dashboard-content {
-    grid-template-columns: 1fr;
-  }
+.icon-navbar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icon-navbar a span {
+  margin-top: 5px;
+}
+
+.dashboard-logout {
+  background-color: #020887;
+  color: #fff;
+  padding: 12px 20px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.dashboard-logout:hover {
+  background-color: #020887;
+  border-color: #020887;
 }

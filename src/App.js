@@ -7,6 +7,8 @@ import BeneficiariesList from './components/beneficiaries/BeneficiariesList';
 import AddBeneficiaryForm from './components/beneficiaries/AddBeneficiaryForm';
 import TransactionHistoryPage from './components/transactions/TransactionHistoryPage';
 import Dashboard from './components/dashboard/Dashboard';
+import UserProfile from './components/profile/UserProfile';
+// import PaymentPage from './components/payments/PaymentPage'; 
 import Homepage from './components/homepage/Homepage';
 import Product from './components/products/Product';
 import About from './components/about/About';
@@ -33,12 +35,14 @@ const App = () => {
               <Route path="/beneficiaries" element={<BeneficiariesList />} />
               <Route path="/add-beneficiary" element={<AddBeneficiaryForm />} />
               <Route path="/transactions" element={<TransactionHistoryPage />} />
-              <Route path="/dashboard" element={<Dashboard />}/>    
+              <Route path="/dashboard" element={<Dashboard />}/>   
+              {/* <Route path="/payment" element={<PaymentPage />} />  */}
              <Route
                 path="/login"
                 element={<Login setToken={setToken} setAuthenticated={setAuthenticated} />}
               />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<UserProfile/>}/>
               <Route path="/" element={<Homepage />} />
               <Route path="/about" element={<About />} />
               <Route path="/products" element={<Product />} />

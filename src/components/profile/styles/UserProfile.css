@@ -1,8 +1,111 @@
-/* userProfile.css */
+/* UserProfile.css */
 
-button{
+.user-profile {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  section {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid #fff; /* Add a white border for a cleaner look */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  }
+  
+  .return-to-dashboard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .return-to-dashboard a {
+    text-decoration: none;
+    color: #007bff; /* Change link color to a more vibrant blue */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .return-to-dashboard span {
+    margin-right: 5px;
+  }
+  
+  button {
     border: none;
-    font-size: 1rem;
-    width: 80px;
-    padding: 0.25rem;
-}
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add styles for the edit icon */
+  .profile-field {
+    position: relative;
+  }
+  
+  .profile-field .edit-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .user-profile {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    main {
+      margin-top: 20px;
+    }
+  
+    section {
+      width: 100%;
+    }
+  }
+  
