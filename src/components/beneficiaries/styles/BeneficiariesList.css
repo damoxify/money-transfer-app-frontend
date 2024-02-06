@@ -1,16 +1,27 @@
 .beneficiaries-list {
-    margin-top: 20px;
-  }
-  
-  .beneficiaries-list h2 {
-    color: #333;
-    font-size: 1.5rem;
-  }
-  
-  .beneficiaries-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
+  margin-top: 20px;
+}
 
-  
+.beneficiaries-list h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px; /* Add margin-bottom for spacing */
+}
+
+.beneficiaries-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.beneficiary-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px; /* Adjust padding */
+}
+
+.beneficiary-item p {
+  color: #333;
+  font-size: 1rem; /* Adjust font size */
+  margin: 0;
+}

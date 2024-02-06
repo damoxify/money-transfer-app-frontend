@@ -1,4 +1,5 @@
 /* Dashboard.css */
+
 .dashboard-container {
   max-width: 80%;
   margin: 80px auto;
@@ -6,6 +7,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Updated background color */
 }
 
 .dashboard-heading {
@@ -24,13 +26,14 @@
 }
 
 .dashboard-welcome {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px; /* Slightly reduced font size */
+  font-weight: 600; /* Increased font weight */
   margin-bottom: 10px;
+  color: #333; /* Adjusted text color */
 }
 
 .dashboard-email {
-  font-size: 16px;
+  font-size: 18px; /* Adjusted font size */
   color: #555;
   margin-bottom: 20px;
 }
@@ -40,21 +43,22 @@
 }
 
 .balance-section h3 {
-  font-size: 24px;
+  font-size: 28px; /* Increased font size for balance */
   margin-bottom: 10px;
+  color: #020887;
 }
 
 .transaction-buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px; /* Increased gap between buttons */
   justify-content: center;
 }
 
 .transaction-buttons a {
   background-color: #020887;
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 4px;
+  padding: 14px 24px; /* Increased padding */
+  border-radius: 6px; /* Slightly increased border radius */
   cursor: pointer;
   font-size: 18px;
   text-decoration: none;
@@ -62,7 +66,7 @@
 }
 
 .transaction-buttons a:hover {
-  background-color: #020887;
+  background-color: #0056b3; /* Darker hover color */
 }
 
 .icon-navbar {
@@ -77,18 +81,21 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  color: #333; /* Adjusted text color */
 }
 
 .icon-navbar a span {
-  margin-top: 5px;
+  margin-top: 8px; /* Increased margin top */
+  font-size: 14px; /* Adjusted font size */
+  color: #555; /* Adjusted text color */
 }
 
 .dashboard-logout {
-  background-color: #020887;
+  background-color: #ff4500; /* Updated logout button color */
   color: #fff;
-  padding: 12px 20px;
-  border: 1px solid #fff;
-  border-radius: 4px;
+  padding: 14px 24px; /* Increased padding */
+  border: 1px solid #ff4500; /* Matching border color */
+  border-radius: 6px; /* Slightly increased border radius */
   cursor: pointer;
   font-size: 18px;
   display: flex;
@@ -98,6 +105,6 @@
 }
 
 .dashboard-logout:hover {
-  background-color: #020887;
-  border-color: #020887;
+  background-color: #cc3d00; /* Darker hover color */
+  border-color: #cc3d00; /* Matching border hover color */
 }

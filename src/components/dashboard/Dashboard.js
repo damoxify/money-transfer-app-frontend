@@ -1,8 +1,17 @@
 // Dashboard.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaChartBar, FaUser, FaMoneyBill, FaUsers, FaMoneyCheckAlt, FaListAlt, FaPowerOff } from 'react-icons/fa';
+import {
+  FaChartBar,
+  FaUser,
+  FaMoneyBill,
+  FaUsers,
+  FaMoneyCheckAlt,
+  FaListAlt,
+  FaPowerOff,
+} from 'react-icons/fa';
 import axios from 'axios';
+import BeneficiariesList from '../beneficiaries/BeneficiariesList'; // Import BeneficiariesList
 import '../dashboard/Dashboard.css';
 
 const Dashboard = ({ setAuthenticated, setToken }) => {
@@ -12,6 +21,9 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
     email: 'shinani@gmail.com',
     balance: 5000,
   });
+
+  // State to manage dropdown visibility
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -36,6 +48,11 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
     navigate('/');
   };
 
+  // Toggle dropdown visibility
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <div className="dashboard-container">
       <h2 className="dashboard-heading">Money Transfer App</h2>
@@ -51,24 +68,35 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
           </div>
         </div>
 
-        <div className="icon-navbar">
-          <Link to="/analytics">
-            <FaChartBar />
-            <span>Analytics</span>
-          </Link>
-          <Link to="/profile">
-            <FaUser />
-            <span>View/Update Profile</span>
-          </Link>
-          <Link to="/add-beneficiary">
+        {/* Beneficiaries dropdown */}
+        <div className="beneficiaries-dropdown">
+          <button onClick={toggleDropdown}>
             <FaUsers />
-            <span>Add Beneficiary</span>
-          </Link>
-          <Link to="/transaction-summary">
-            <FaListAlt />
-            <span>Transaction Summary</span>
-          </Link>
+            <span>View Beneficiaries</span>
+          </button>
+          {isDropdownOpen && <BeneficiariesList />}
         </div>
+
+        {/* Other navigation links */}
+        <div className="icon-navbar">
+  <Link to="/analytics">
+    <FaChartBar />
+    <span>Analytics</span>
+  </Link>
+  <Link to="/profile">
+    <FaUser />
+    <span>View/Update Profile</span>
+  </Link>
+  <Link to="/add-beneficiary">
+    <FaUsers />
+    <span>Add Beneficiary</span>
+  </Link>
+  <Link to="/transaction-summary">
+    <FaListAlt />
+    <span>Transaction Summary</span>
+  </Link>
+</div>
+
 
         <button className="dashboard-logout" onClick={handleLogout}>
           <FaPowerOff />
