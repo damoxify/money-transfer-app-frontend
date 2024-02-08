@@ -8,7 +8,7 @@ const Product = () => {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    color: '#fff', // Set text color to white for better visibility
+    color: '#8033ff', // Set text color to white for better visibility
   };
 
   return (

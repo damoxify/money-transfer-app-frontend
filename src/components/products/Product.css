@@ -26,7 +26,9 @@
 }
 
 .product-container h2 {
-  color: #2ecc71;
+  color: #0a69f7;
+  background-color: rgba(196, 250, 247, 0.6);
+  z-index: -1;
 }
 
 .feature-list p,

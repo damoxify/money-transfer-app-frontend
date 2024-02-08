@@ -50,7 +50,7 @@ function AdminUser() {
                                 <td>{d.id}</td>
                                 <td>{d.fullname}</td>
                                 <td>{d.nickname}</td>
-                                <td>{d.fullname}</td>
+                                {/* <td>{d.fullname}</td> */}
                                 <td>{d.dob}</td>
                                 <td>{d.gender}</td>
                                 <td>{d.BVN}</td>
