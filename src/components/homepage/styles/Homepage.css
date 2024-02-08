@@ -1,9 +1,7 @@
-  /* Homepage Styles */
   .homepage-container {
     position: relative;
   }
 
-  /* Navbar Styles */
   .navbar {
     display: flex;
     justify-content: space-between;

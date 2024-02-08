@@ -1,18 +1,9 @@
-// Product.js
 import React from 'react';
 import './Product.css';
-import backgroundImage from '../../assets/images/mtalogin.jpg';
 
 const Product = () => {
-  const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    color: '#8033ff', // Set text color to white for better visibility
-  };
-
   return (
-    <div className="product-container" style={containerStyle}>
+    <div className="product-container">
       <h1>DMOPay - Fast, Secure, and Easy Money Transfers</h1>
       
       <p>
