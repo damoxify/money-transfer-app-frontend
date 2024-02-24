@@ -1,55 +1,53 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
+import React from 'react';
+import '../payments/PaymentPage.css';
 
-// const PaymentPage = () => {
-//   const [paymentAmount, setPaymentAmount] = useState(0);
+const PaymentPage = () => {
+  const payWithPaystack = (e) => {
+    e.preventDefault();
 
-//   const handlePayment = async () => {
-//     try {
-//       const response = await axios.post('/api/create-payment-intent', {
-//         amount: paymentAmount * 100, // Convert amount to cents (Stripe expects amount in cents)
-//       });
+    let handler = window.PaystackPop.setup({
+      key: 'pk_test_c0a30850d1d38937ccbcc0b6ee194c8051d10ef0', 
+      email: document.getElementById("email-address").value,
+      amount: document.getElementById("amount").value * 100,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1),
+      onClose: function(){
+        alert('Window closed.');
+      },
+      callback: function(response){
+        let message = 'Payment complete! Reference: ' + response.reference;
+        alert(message);
+      }
+    });
 
-//       const clientSecret = response.data.clientSecret;
+    handler.openIframe();
+  };
 
-//       const stripe = Stripe('your_stripe_publishable_key');
+  return (
+    <div className="payment-container">
+      <form id="paymentForm" onSubmit={payWithPaystack}>
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
+          <input type="email" id="email-address" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="amount">Amount</label>
+          <input type="tel" id="amount" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="first-name">First Name</label>
+          <input type="text" id="first-name" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="last-name">Last Name</label>
+          <input type="text" id="last-name" />
+        </div>
+        <div className="form-submit">
+          <button type="submit">Pay</button>
+        </div>
+      </form>
+      <script src="https://js.paystack.co/v1/inline.js"></script>
+    </div>
+  );
+};
 
-//       const result = await stripe.confirmCardPayment(clientSecret, {
-//         payment_method: {
-//           card: stripe.elements.getElement('card'),
-//         },
-//       });
-
-//       if (result.paymentIntent.status === 'succeeded') {
-//         // Payment succeeded, you can handle success here
-//         alert('Payment succeeded!');
-//       } else {
-//         // Payment failed, handle the error
-//         console.error('Payment failed:', result.error.message);
-//       }
-//     } catch (error) {
-//       console.error('Error processing payment:', error.message);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Payment Page</h2>
-//       <label>
-//         Amount: $
-//         <input
-//           type="number"
-//           value={paymentAmount}
-//           onChange={(e) => setPaymentAmount(e.target.value)}
-//         />
-//       </label>
-//       <div id="card-element">
-//         {/* Include a card element here using Stripe.js */}
-//         {/* For simplicity, you can use an external Stripe.js library like react-stripe-elements */}
-//       </div>
-//       <button onClick={handlePayment}>Pay Now</button>
-//     </div>
-//   );
-// };
-
-// export default PaymentPage;
+export default PaymentPage;

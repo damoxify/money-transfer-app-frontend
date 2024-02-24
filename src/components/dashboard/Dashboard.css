@@ -91,10 +91,10 @@
 }
 
 .dashboard-logout {
-  background-color: #ff4500; /* Updated logout button color */
+  background-color: #02126c; /* Updated logout button color */
   color: #fff;
   padding: 14px 24px; /* Increased padding */
-  border: 1px solid #ff4500; /* Matching border color */
+  border: 1px solid #0417a4; /* Matching border color */
   border-radius: 6px; /* Slightly increased border radius */
   cursor: pointer;
   font-size: 18px;
@@ -105,6 +105,6 @@
 }
 
 .dashboard-logout:hover {
-  background-color: #cc3d00; /* Darker hover color */
-  border-color: #cc3d00; /* Matching border hover color */
+  background-color: #2293d8; /* Darker hover color */
+  border-color: #02126c; /* Matching border hover color */
 }

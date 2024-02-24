@@ -46,7 +46,7 @@
   }
   
   .signup-input {
-    width: 90%;
+    width: 100%;
     padding: 0.75rem;
     border: 2px solid #8a2be2;
     border-radius: 0.5rem;
@@ -67,8 +67,7 @@
   }
   
   .signup-button {
-    width: 50%;
-    margin-left: 5rem;
+    width: 100%;
     background-color: rgb(45, 70, 232);
     color: #fff;
     padding: 1rem;

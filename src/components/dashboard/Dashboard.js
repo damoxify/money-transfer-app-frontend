@@ -22,18 +22,16 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
     balance: 5000,
   });
 
-  // State to manage dropdown visibility
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get('/users/1');
-        const { username, email } = response.data;
+        const { username, email, balance } = response.data;
 
         setUserData({
           username,
           email,
+          balance,
         });
       } catch (error) {
         console.error('Error fetching user data:', error.message);
@@ -44,13 +42,14 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
   }, []);
 
   const handleLogout = () => {
-    // Handle logout logic
     navigate('/');
   };
 
-  // Toggle dropdown visibility
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const handlePaymentSuccess = (updatedBalance) => {
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      balance: updatedBalance,
+    }));
   };
 
   return (
@@ -63,18 +62,9 @@ const Dashboard = ({ setAuthenticated, setToken }) => {
         <div className="balance-section">
           <h3>Your Balance: ${userData.balance}</h3>
           <div className="transaction-buttons">
-            <Link to="/add-funds">Add Funds</Link>
-            <Link to="/send-money">Send Money</Link>
+            <Link to="/payment">Add Funds</Link>
+            <Link to="/funds-transfer">Send Money</Link>
           </div>
-        </div>
-
-        {/* Beneficiaries dropdown */}
-        <div className="beneficiaries-dropdown">
-          <button onClick={toggleDropdown}>
-            <FaUsers />
-            <span>View Beneficiaries</span>
-          </button>
-          {isDropdownOpen && <BeneficiariesList />}
         </div>
 
         {/* Other navigation links */}
