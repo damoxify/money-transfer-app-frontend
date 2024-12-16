@@ -1,0 +1,12 @@
+  /* TransactionItem.css */
+  
+  .transaction-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .transaction-details {
+    display: flex;
+    justify-content: space-between;
+  }

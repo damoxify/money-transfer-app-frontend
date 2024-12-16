@@ -1,0 +1,24 @@
+/* InternationalTransfer */
+input[type="text"] {
+    font-size: 1rem;
+    border: none;
+    padding: 0.5em 1em;
+    transition: all 0.2s;
+  }
+  
+  input[type="text"]::placeholder {
+    font-style: italic;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+  }
+
+  input[type="send"] {
+    font-size: 1rem;
+    border: none;
+    padding: 0.5em 1em
+  }
+  input[type="send"]::placeholder {
+    font-style: bold;
+  }

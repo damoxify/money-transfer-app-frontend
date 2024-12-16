@@ -1,0 +1,25 @@
+/* App.css */
+
+/* Define styles for dark mode */
+.dark-mode {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Light text color */
+}
+
+.dark-mode-toggle-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff; /* Light color for toggle button */
+}
+
+.dark-mode-toggle:hover {
+  color: #ccc; /* Lighter color on hover */
+}

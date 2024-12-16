@@ -1,0 +1,115 @@
+  .homepage-container {
+    position: relative;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+    background-color: transparent;
+    z-index: 1000;
+  }
+
+  .logo {
+    max-width: 150px; 
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #020887;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #ff5733;
+
+  }
+
+
+  .homepage-header {
+    color: #020887;
+    padding: 2rem;
+    font-size: larger;
+    margin-top: 0;
+  }
+
+  .header-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header-text {
+    color: #555;
+    max-width: 400px;
+    margin-left: 10px;
+  }
+
+  .header-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .catchy-phrase {
+    color: #020887;
+  }
+
+  .feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem; /* Increase the gap for more separation */
+  text-align: left;
+  margin: 2rem;
+}
+
+.feature-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.feature-details {
+  max-width: 400px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  color: #020887;
+  margin-top: 1rem;
+}
+
+.feature p {
+  color: #555;
+}
+
+/* Adjust for the second feature item */
+.feature-item:last-child {
+  text-align: right;
+}
+/* Add padding to the main content to prevent overlap with the fixed navbar */
+main {
+  padding-top: 80px; /* Adjust this value based on your header height */
+  position: relative;
+  z-index: 1;
+}
+
+
+  /* Add padding to the main content to prevent overlap with the fixed navbar */
+  main {
+    padding-top: 80px; /* Adjust this value based on your header height */
+    position: relative;
+    z-index: 1;
+  }

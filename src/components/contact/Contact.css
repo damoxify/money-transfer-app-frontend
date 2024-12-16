@@ -1,0 +1,50 @@
+
+.contact-container {
+  max-width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #3498db;
+  text-align: center;
+}
+
+h2 {
+  color: #2ecc71;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.contact-info,
+.support-hours,
+.social-media {
+  margin-bottom: 20px;
+}
+
+.social-media-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.social-media-links li {
+  margin-right: 10px;
+}
+
+.social-media-links a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    max-width: 90%;
+  }
+}
